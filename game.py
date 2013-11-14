@@ -8,13 +8,6 @@ class Board(object):
 
         """Initialize an empty board with spaces numbered 1-9."""
 
-        # This is just the layout to display as keyboard shortcuts and to loop through if necessary
-        #self.layout = [
-                #[1, 2, 3],
-                #[4, 5, 6],
-                #[7, 8, 9]
-            #]
-
         # This holds the pieces. It starts with empty spaces.
         self.gameboard = { 1: " ", 2: " ", 3: " ", 4: " ", 5: " ", 6: " ",  7: " ", 8: " ", 9: " " }
 
@@ -42,15 +35,18 @@ class Board(object):
         # Holds values of current positions
         board = []
 
+        # Append the current positions onto the board list
         for key, value in self.gameboard.iteritems():
             board.append(value)
 
+        # Print the rendered template
         print self.template % (board[0], board[1], board[2], board[3], board[4], board[5], board[6], board[7], board[8], board[9])
 
     def print_help(self):
         
         """Draw the position numbers to help the player."""
 
+        # Print out the keys used to place a piece on the board
         for key in self.gameboard:
             if key % 3 != 0:
                 print key,
@@ -100,7 +96,7 @@ class GameMaster(object):
         player_move = raw_input("Please enter a position number between 1-9: ")
 
         try:
-            if int(player_move) not in range(1,10):
+            if int(player_move) not in range(1, 10):
                 print "Invalid choice..."
                 self.ask_for_move()
         except:
