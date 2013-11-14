@@ -8,13 +8,6 @@ class Board(object):
 
         """Initialize an empty board with spaces numbered 1-9."""
 
-        # This holds the pieces
-        self.gameboard = [
-                [1, 2, 3],
-                [4, 5, 6],
-                [7, 8, 9]
-            ]
-
         # This is just the layout to display as keyboard shortcuts
         self.layout = [
                 [1, 2, 3],
@@ -22,14 +15,17 @@ class Board(object):
                 [7, 8, 9]
             ]
 
+        # This holds the pieces. It starts with empty spaces.
+        self.gameboard = { 1: " ", 2: " ", 3: " ", 4: " ", 5: " ", 6: " ",  7: " ", 8: " ", 9: " " }
+
         # This is a template that gets rendered with the actual positions
         self.template = """
 -------------
-| 1 | 2 | 3 |
+| %s | %s | %s |
 -------------
-| 4 | 5 | 6 |
+| %s | %s | %s |
 -------------
-| 7 | 8 | 9 |
+| %s | %s | %s |
 -------------""" 
 
     def __repr__(self):
@@ -40,7 +36,16 @@ class Board(object):
         return output
 
     def render_template(self):
-        pass
+
+        """Renders the board to the screen with the current positions."""
+
+        # Holds values of current positions
+        board = []
+
+        for key, value in self.gameboard.iteritems():
+            board.append(value)
+
+        print self.template % (board[0], board[1], board[2], board[3], board[4], board[5], board[6], board[7], board[8], board[9])
 
     def draw_help(self):
         
