@@ -9,11 +9,11 @@ class Board(object):
         """Initialize an empty board with spaces numbered 1-9."""
 
         # This is just the layout to display as keyboard shortcuts and to loop through if necessary
-        self.layout = [
-                [1, 2, 3],
-                [4, 5, 6],
-                [7, 8, 9]
-            ]
+        #self.layout = [
+                #[1, 2, 3],
+                #[4, 5, 6],
+                #[7, 8, 9]
+            #]
 
         # This holds the pieces. It starts with empty spaces.
         self.gameboard = { 1: " ", 2: " ", 3: " ", 4: " ", 5: " ", 6: " ",  7: " ", 8: " ", 9: " " }
@@ -51,10 +51,11 @@ class Board(object):
         
         """Draw the position numbers to help the player."""
 
-        for row in self.layout:
-            print ""
-            for space in row:
-                print space,
+        for key in self.gameboard:
+            if key % 3 != 0:
+                print key,
+            else:
+                print key
 
 #class Piece(object):
 
