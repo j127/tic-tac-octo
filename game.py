@@ -8,7 +8,7 @@ class Board(object):
 
         """Initialize an empty board with spaces numbered 1-9."""
 
-        # This is just the layout to display as keyboard shortcuts
+        # This is just the layout to display as keyboard shortcuts and to loop through if necessary
         self.layout = [
                 [1, 2, 3],
                 [4, 5, 6],
@@ -47,7 +47,7 @@ class Board(object):
 
         print self.template % (board[0], board[1], board[2], board[3], board[4], board[5], board[6], board[7], board[8], board[9])
 
-    def draw_help(self):
+    def print_help(self):
         
         """Draw the position numbers to help the player."""
 
@@ -56,14 +56,14 @@ class Board(object):
             for space in row:
                 print space,
 
-class Piece(object):
+#class Piece(object):
 
-    """Represents an X or O on the board along with a position."""
+    #"""Represents an X or O on the board along with a position. Probably don't need this."""
 
-    def __init__(self, shape, x, y):
-        self.shape = shape
-        self.x = x
-        self.y = y
+    #def __init__(self, shape, x, y):
+        #self.shape = shape
+        #self.x = x
+        #self.y = y
 
 class Player(object):
 
@@ -93,11 +93,30 @@ class GameMaster(object):
     def __init__(self):
         pass
 
+    def ask_for_move(self):
+
+        """Get player's move."""
+        player_move = raw_input("Please enter a position number between 1-9: ")
+
+        try:
+            if int(player_move) not in range(1,10):
+                print "Invalid choice..."
+                self.ask_for_move()
+        except:
+            print "Please enter a number... Try again."
+            self.ask_for_move()
+
 class Computer(Player):
 
     """Extends the Player class to represent a computer with AI."""
 
-class Log(object):
+    def choose_move(self):
+        pass
+
+class Logger(object):
+
+    """This will keep track of every game."""
+
     pass
 
 
