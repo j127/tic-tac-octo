@@ -53,15 +53,6 @@ class Board(object):
             else:
                 print key
 
-#class Piece(object):
-
-    #"""Represents an X or O on the board along with a position. Probably don't need this."""
-
-    #def __init__(self, shape, x, y):
-        #self.shape = shape
-        #self.x = x
-        #self.y = y
-
 class Player(object):
 
     """Represents a player, either real or computer."""
