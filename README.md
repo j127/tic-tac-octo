@@ -1,3 +1,3 @@
 # Tic Tac Toe
 
-Simple tic tac toe experiment in Python 2.7.
+Tic tac toe experiment in Python 2.7.
